@@ -1,4 +1,4 @@
-package com.guru.utils;
+package com.guru.enums;
 
 public enum ConfigProperties {
 

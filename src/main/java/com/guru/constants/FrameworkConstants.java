@@ -1,6 +1,6 @@
 package com.guru.constants;
 
-import com.guru.utils.ConfigProperties;
+import com.guru.enums.ConfigProperties;
 import com.guru.utils.PropertyUtil;
 
 //here we are making class as final becoz i dont want people to extend to another class

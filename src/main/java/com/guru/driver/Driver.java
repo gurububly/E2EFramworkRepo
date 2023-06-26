@@ -1,7 +1,7 @@
 package com.guru.driver;
 
 import com.guru.constants.FrameworkConstants;
-import com.guru.utils.ConfigProperties;
+import com.guru.enums.ConfigProperties;
 import com.guru.utils.PropertyUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

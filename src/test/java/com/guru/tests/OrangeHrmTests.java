@@ -16,7 +16,8 @@ public class OrangeHrmTests extends BaseTest {
 
     }
 
-    @Test(dataProvider = "verifyData")
+    //@Test(dataProvider = "verifyData")
+    @Test
     public void loginLogoutVerify(String userName, String password) {
 
        // ExtentReport.createTest("This is a login and logut test case with data provider annotation");
@@ -27,6 +28,20 @@ public class OrangeHrmTests extends BaseTest {
         orhml.clickLogin();
 
         */
+        Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
+        // But if we want to acheive method chaining and clean code and readble then below approach is best
+        OrangeHRMLoginPage orhml = new OrangeHRMLoginPage();
+        String title = orhml.enterUserName(userName).enterPassword(password).clickLogin()
+                .clickLogoutMenu().clickLogoutLink().getTitle();
+
+        Assertions.assertThat(title)
+                .isEqualTo("OrangeHRM");
+
+    }
+
+    @Test
+    public void newTestVerify(String userName, String password) {
+
         Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
         // But if we want to acheive method chaining and clean code and readble then below approach is best
         OrangeHRMLoginPage orhml = new OrangeHRMLoginPage();

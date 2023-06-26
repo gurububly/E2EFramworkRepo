@@ -1,6 +1,7 @@
 package com.guru.utils;
 
 import com.guru.constants.FrameworkConstants;
+import com.guru.enums.ConfigProperties;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -31,7 +32,7 @@ public final class PropertyUtil {
 
     public static String getValue(ConfigProperties key) throws Exception {
         //we are adding null check here if not null it just return the value of the key
-        if (Objects.isNull(key) || Objects.isNull(key)) {
+        if (Objects.isNull(key) || Objects.isNull(property.getProperty(key.name().toLowerCase()))) {
             throw new Exception("Property name " + key + " is not found. please check config.properties file");
         }
         return property.getProperty(key.name().toLowerCase()).trim();

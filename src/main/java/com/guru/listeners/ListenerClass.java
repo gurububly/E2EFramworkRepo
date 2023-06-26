@@ -7,6 +7,7 @@ import com.aventstack.extentreports.ExtentTest;
 import org.testng.*;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ListenerClass implements ITestListener, ISuiteListener {
     @Override
@@ -21,9 +22,10 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        ExtentLogger.pass(result.getMethod().getMethodName() + "is Failed");
         try {
-            ExtentLogger.fail(result.getMethod().getMethodName() + "is Failed",true);
+            ExtentLogger.fail(result.getMethod().getMethodName() + "is Failed", true);
+            //The below statement will add the logs for the failed case aswell
+            ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
